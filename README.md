@@ -6,6 +6,6 @@ Make sure you have Python 3 installed on your machine. Then change directory to 
 <code>python3 PySimpleCalc.py</code>
 # Screen Shot
 Version 0.1<br/>
-<img src='https://raw.githubusercontent.com/MS-Jahan/PySimpleCalc/master/Screenshot.png'><br/>
+<img src='https://raw.githubusercontent.com/MS-Jahan/PySimpleCalc/master/Screenshot.png'><br/><br/>
 Version 0.2<br/>
 <img src='https://raw.githubusercontent.com/MS-Jahan/PySimpleCalc/master/Screenshot1.png'><br/>
