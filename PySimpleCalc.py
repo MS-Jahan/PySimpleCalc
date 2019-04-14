@@ -28,11 +28,11 @@ image_del = './ButtonGraphics/del.png'
 
 layout = [[sg.Text('PySimpleCalc', justification='center', font='any 20')],
           [sg.Text('A Simple Calculator, Made With PySimpleGUI.')],
-          [sg.Text('Display: '), sg.InputText('', key='disp', size=(14,1)), sg.Button('', image_filename=image_del, button_color=('#d9d9d9', '#d9d9d9'), image_size=(37, 26), image_subsample=25, border_width=0, key='del')],
-          [sg.RButton('7', button_color=('black', 'white')), sg.RButton('8', button_color=('black', 'white')), sg.RButton('9', button_color=('black', 'white')), sg.RButton('/', size=(1,1), button_color=('black', '#4a90d9'))],
-          [sg.RButton('4', button_color=('black', 'white')), sg.RButton('5', button_color=('black', 'white')), sg.RButton('6', button_color=('black', 'white')), sg.RButton('*', size=(1,1), button_color=('black', '#4a90d9'))],
-          [sg.RButton('1', button_color=('black', 'white')), sg.RButton('2', button_color=('black', 'white')), sg.RButton('3', button_color=('black', 'white')), sg.RButton('-', size=(1,1), button_color=('black', '#4a90d9'))],
-          [sg.RButton('AC', size=(1,1), button_color=('white', 'red')), sg.RButton('0', button_color=('black', 'white')), sg.RButton('.', size=(1,1), button_color=('white', 'red')), sg.RButton('+', size=(1,1), button_color=('black', '#4a90d9')), sg.RButton('=', size=(1,1), button_color=('white', 'springgreen4'))]
+          [sg.Text('Display: '), sg.InputText('', key='disp', size=(14,1)), sg.Button('', image_filename=image_del, button_color=('#d9d9d9', '#d9d9d9'), image_size=(37, 26), image_subsample=25, border_width=0, key='del'), sg.Text('0.0', key='result', font='DS-Digital 40')],
+          [sg.RButton('7', size=(1,1), button_color=('black', 'white')), sg.RButton('8', size=(1,1), button_color=('black', 'white')), sg.RButton('9', size=(1,1), button_color=('black', 'white')), sg.RButton('/', size=(1,1), button_color=('black', '#4a90d9'))],
+          [sg.RButton('4', size=(1,1), button_color=('black', 'white')), sg.RButton('5', size=(1,1), button_color=('black', 'white')), sg.RButton('6', size=(1,1), button_color=('black', 'white')), sg.RButton('*', size=(1,1), button_color=('black', '#4a90d9'))],
+          [sg.RButton('1', size=(1,1), button_color=('black', 'white')), sg.RButton('2', size=(1,1), button_color=('black', 'white')), sg.RButton('3', size=(1,1), button_color=('black', 'white')), sg.RButton('-', size=(1,1), button_color=('black', '#4a90d9'))],
+          [sg.RButton('AC', size=(1,1), button_color=('white', 'red')), sg.RButton('0', size=(1,1), button_color=('black', 'white')), sg.RButton('.', size=(1,1), button_color=('white', 'red')), sg.RButton('+', size=(1,1), button_color=('black', '#4a90d9')), sg.RButton('=', size=(1,1), button_color=('white', 'springgreen4'))]
           ]
           
 window = sg.Window('PySimpleGUI').Layout(layout)
@@ -133,25 +133,30 @@ while True:
 		equal = add(first_number, last_number)
 		values['disp'] = equal
 		window.FindElement('disp').Update(values['disp'])
+		window.FindElement('result').Update(values['disp'])
 		first_number = equal
 	elif button == '=' and status == '-':
 		last_number = float(values['disp'])
 		equal = minus(first_number, last_number)
 		values['disp'] = equal
 		window.FindElement('disp').Update(values['disp'])
+		window.FindElement('result').Update(values['disp'])
 		first_number = equal
 	elif button == '=' and status == '*':
 		last_number = float(values['disp'])
 		equal = mult(first_number, last_number)
 		values['disp'] = equal
 		window.FindElement('disp').Update(values['disp'])
+		window.FindElement('result').Update(values['disp'])
 		first_number = equal
 	elif button == '=' and status == '/':
 		last_number = float(values['disp'])
 		equal = devide(first_number, last_number)
 		values['disp'] = equal
 		window.FindElement('disp').Update(values['disp'])
+		window.FindElement('result').Update(values['disp'])
 		first_number = equal
+		
 	elif button == '=' and status == None:
 		sg.PopupOK('                              Enter valid numbers first!                         ', title='NOT TOO FAST, DUDE!')
 	elif button == '=' and values['disp'] == '':
